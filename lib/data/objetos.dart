@@ -19,7 +19,7 @@ List<Produto> PRODUTOS = [
   Produto(
       id: Random().nextInt(9999),
       nome: 'Juntas',
-      descricao: 'juntas',
+      descricao: 'juntas diversas para prototipagem',
       altura: 5,
       comprimento: 15,
       imagem: Image.file(File('lib/assets/juntas.jpg')),

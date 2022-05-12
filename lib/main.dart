@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:suafabrica/components/produto-detalhes.dart';
 import 'package:suafabrica/screens/home_page.dart';
 import 'package:suafabrica/screens/product-options.dart';
 import 'package:suafabrica/utils/app_routes.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoutes.HOME: (context) => HomePage(),
         AppRoutes.PRODUCT_OPTIONS: (context) => ProdutoOpcoesScreen(),
+        AppRoutes.PRODUCT_DETAILS: (context) => ProdutoDetalhes(),
       },
     );
   }
