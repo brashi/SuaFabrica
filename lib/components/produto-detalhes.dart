@@ -26,34 +26,36 @@ class ProdutoDetalhes extends StatelessWidget {
                     fit: BoxFit.fill,
                   ),
                 ),
-                Column(children: <Widget>[
-                  Text("Nome da peça: " + produto.nome),
-                  Text("Descrição: " + produto.descricao),
-                  Text("Medidas (Altura x Comprimento x Largura): " +
-                      produto.altura.toString() +
-                      "cm x " +
-                      produto.comprimento.toString() +
-                      "cm x " +
-                      produto.largura.toString() +
-                      "cm ."),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      PEDIDOS.add(Pedido(
-                          id: Random().nextInt(9999),
-                          produto: (produto),
-                          dataPedido: DateTime.now(),
-                          dataPrevisao: (DateTime.now()
-                              .add(Duration(hours: Random().nextInt(59)))),
-                          valor: produto.altura *
-                              (produto.comprimento + produto.largura)));
-                      Navigator.of(context).pop(produto.nome);
-                    },
-                    child: Text("Comprar"),
-                  )
-                ]),
+                Flexible(
+                  child: Column(children: <Widget>[
+                    Text("Nome da peça: " + produto.nome),
+                    Text("Descrição: " + produto.descricao),
+                    Text("Medidas (Altura x Comprimento x Largura): \n" +
+                        produto.altura.toString() +
+                        "cm x " +
+                        produto.comprimento.toString() +
+                        "cm x " +
+                        produto.largura.toString() +
+                        "cm ."),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        PEDIDOS.add(Pedido(
+                            id: Random().nextInt(9999),
+                            produto: (produto),
+                            dataPedido: DateTime.now(),
+                            dataPrevisao: (DateTime.now()
+                                .add(Duration(hours: Random().nextInt(59)))),
+                            valor: produto.altura *
+                                (produto.comprimento + produto.largura)));
+                        Navigator.of(context).pop(produto.nome);
+                      },
+                      child: Text("Comprar"),
+                    )
+                  ]),
+                ),
               ])
             ],
           ),
