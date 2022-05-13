@@ -30,7 +30,7 @@ class PedidosOpcoesScreen extends StatelessWidget {
                             },
                             child: Row(
                               children: [
-                                Container(
+                                Flexible(
                                   child: Text("Pedido Nº: " +
                                       pedido.id.toString() +
                                       " - " +

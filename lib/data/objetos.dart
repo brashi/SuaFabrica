@@ -23,5 +23,23 @@ List<Produto> PRODUTOS = [
       altura: 5,
       comprimento: 15,
       imagem: Image.file(File('lib/assets/juntas.jpg')),
-      largura: 5)
+      largura: 5),
+  Produto(
+      id: Random().nextInt(9999),
+      nome: 'Dobradiça',
+      descricao: 'Dobradiças de protitopo para portas',
+      altura: 5,
+      comprimento: 10,
+      largura: 3,
+      imagem: Image.file(
+        File('lib/assets/dobradica.jpg'),
+      )),
+  Produto(
+      id: Random().nextInt(9999),
+      nome: 'Mola P',
+      descricao: 'Mola pequena',
+      altura: 1.234,
+      comprimento: 1.54,
+      largura: 1.12,
+      imagem: Image.file(File('lib/assets/mola.png'))),
 ];
