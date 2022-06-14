@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:suafabrica/components/main-drawer.dart';
 import 'package:suafabrica/data/objetos.dart';
 import 'package:suafabrica/screens/pedidos-options.dart';
 import 'package:suafabrica/screens/product-options.dart';
@@ -13,7 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _indexSelectedScreen = 0;
 
-  List<Widget> _screens = [PedidosOpcoesScreen(PEDIDOS), ProdutoOpcoesScreen()];
+  List<Widget> _screens = [ProdutoOpcoesScreen(), PedidosOpcoesScreen()];
   _selectScreen(int index) {
     setState(() {
       _indexSelectedScreen = index;
@@ -30,10 +31,11 @@ class _HomePageState extends State<HomePage> {
           currentIndex: _indexSelectedScreen,
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.view_headline), label: 'Pedidos'),
-            BottomNavigationBarItem(
                 icon: Icon(Icons.add_shopping_cart), label: 'Comprar'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.view_headline), label: 'Pedidos'),
           ]),
+      drawer: MainDrawer(),
     );
   }
 }

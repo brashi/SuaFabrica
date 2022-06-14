@@ -1,6 +1,10 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:suafabrica/controller/pedido-controller.dart';
+import 'package:suafabrica/controller/produto-controller.dart';
 import 'package:suafabrica/data/objetos.dart';
 import 'package:suafabrica/model/pedido.dart';
 import 'package:suafabrica/model/produto.dart';
@@ -8,6 +12,8 @@ import 'package:suafabrica/model/produto.dart';
 class ProdutoDetalhes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final pedidoController = Provider.of<PedidoController>(context);
+
     final produto = ModalRoute.of(context)?.settings.arguments as Produto;
     return Scaffold(
         appBar: AppBar(
@@ -22,7 +28,7 @@ class ProdutoDetalhes extends StatelessWidget {
                   height: 200,
                   width: 200,
                   child: Image(
-                    image: produto.imagem.image,
+                    image: Image.file(File(produto.imagemArquivo)).image,
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -42,12 +48,12 @@ class ProdutoDetalhes extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        PEDIDOS.add(Pedido(
-                            id: Random().nextInt(9999),
-                            produto: (produto),
+                        pedidoController.addPedido(Pedido(
+                            id: Random().nextDouble().toString(),
+                            produtoId: (produto.id),
                             dataPedido: DateTime.now(),
                             dataPrevisao: (DateTime.now()
-                                .add(Duration(hours: Random().nextInt(59)))),
+                                .add(Duration(hours: Random().nextInt(120)))),
                             valor: produto.altura *
                                 (produto.comprimento + produto.largura)));
                         Navigator.of(context).pop(produto.nome);
