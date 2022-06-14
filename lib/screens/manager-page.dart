@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:suafabrica/components/main-drawer.dart';
-import 'package:suafabrica/screens/pedido-manage.dart';
+import 'package:suafabrica/screens/pedido-manage-screen.dart';
 import 'package:suafabrica/screens/produto-manage-screen.dart';
 import 'package:suafabrica/utils/app_routes.dart';
 

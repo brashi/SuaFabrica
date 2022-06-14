@@ -50,7 +50,7 @@ class ProdutoDetalhes extends StatelessWidget {
                       onPressed: () {
                         pedidoController.addPedido(Pedido(
                             id: Random().nextDouble().toString(),
-                            produtoId: (produto.id),
+                            produto: (produto),
                             dataPedido: DateTime.now(),
                             dataPrevisao: (DateTime.now()
                                 .add(Duration(hours: Random().nextInt(120)))),

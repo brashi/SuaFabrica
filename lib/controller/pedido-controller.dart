@@ -56,9 +56,10 @@ class PedidoController with ChangeNotifier {
     final future = http.post(Uri.parse('$_baseURL/pedidos.json'),
         body: jsonEncode({
           "id": pedido.id,
-          "produtoId": pedido.produtoId,
+          "produto": pedido.produto.toJson(),
           "dataPedido": pedido.dataPedido.toUtc().toString(),
           "dataPrevisao": pedido.dataPrevisao.toUtc().toString(),
+          "pedidoConcluido": pedido.pedidoConcluido,
           "valor": pedido.valor
         }));
 
@@ -71,7 +72,6 @@ class PedidoController with ChangeNotifier {
   }
 
   Future<void> updatePedido(Pedido pedido) async {
-    fetchPedidos();
     var chavePedido;
     mapaPedidos.forEach((key, value) {
       Map<String, dynamic> map = mapaPedidos[key];
@@ -88,9 +88,10 @@ class PedidoController with ChangeNotifier {
             },
             body: jsonEncode({
               'id': pedido.id,
-              'produtoId': pedido.produtoId,
-              'dataPedido': pedido.dataPedido,
-              'dataPrevisao': pedido.dataPrevisao,
+              'produto': pedido.produto.toJson(),
+              'dataPedido': pedido.dataPedido.toUtc().toString(),
+              'dataPrevisao': pedido.dataPrevisao.toUtc().toString(),
+              'pedidoConcluido': pedido.pedidoConcluido,
               'valor': pedido.valor
             }));
 

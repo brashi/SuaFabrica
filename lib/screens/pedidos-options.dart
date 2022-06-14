@@ -36,18 +36,15 @@ class PedidosOpcoesScreen extends StatelessWidget {
                       itemCount: lista.data?.length,
                       itemBuilder: (context, index) {
                         final pedido = lista.data![index];
-                        final produtoDoPedido = listaProdutos
-                            .firstWhere((e) => e.id == pedido.produtoId);
+
                         return Card(
                             child: InkWell(
                                 onTap: () {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Detalhes(
-                                              pedido,
-                                              produtoDoPedido.nome,
-                                              produtoDoPedido.descricao)));
+                                          builder: (context) =>
+                                              Detalhes(pedido)));
                                 },
                                 child: Row(
                                   children: [
@@ -55,7 +52,7 @@ class PedidosOpcoesScreen extends StatelessWidget {
                                       child: Text("Pedido Nº: " +
                                           pedido.id.toString() +
                                           " - " +
-                                          produtoDoPedido.nome +
+                                          pedido.produto.nome +
                                           " - Data entrega: " +
                                           DateFormat('d MMM y : H:m:s')
                                               .format(pedido.dataPrevisao)),
@@ -76,20 +73,17 @@ class PedidosOpcoesScreen extends StatelessWidget {
 
 class Detalhes extends StatelessWidget {
   final Pedido _pedido;
-  final nomeProduto;
-  final descricaoProduto;
-  const Detalhes(this._pedido, this.nomeProduto, this.descricaoProduto,
-      {Key? key})
-      : super(key: key);
+  const Detalhes(this._pedido, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Text("Detalhes do pedido: ${_pedido.id} - ${nomeProduto}")),
+            title: Text(
+                "Detalhes do pedido: ${_pedido.id} - ${_pedido.produto.nome}")),
         body: Center(
             child: Column(children: <Widget>[
-          Card(child: Text("Observações: " + descricaoProduto)),
+          Card(child: Text("Observações: " + _pedido.produto.descricao)),
           Card(
               child: Text("Data Criação: " +
                   DateFormat('d MMM y : H:m:s').format(_pedido.dataPedido))),
@@ -98,7 +92,12 @@ class Detalhes extends StatelessWidget {
                   DateFormat('d MMM y : H:m:s').format(_pedido.dataPrevisao))),
           Card(
             child: Text("Valor do pedido: " + _pedido.valor.toString()),
-          )
+          ),
+          if (_pedido.pedidoConcluido)
+            Card(
+              color: Colors.green.shade200,
+              child: Text("Pedido concluído (Confirmado pelo Fabricante)."),
+            )
         ])));
   }
 }
