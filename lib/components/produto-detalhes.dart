@@ -16,19 +16,18 @@ class ProdutoDetalhes extends StatelessWidget {
 
     final produto = ModalRoute.of(context)?.settings.arguments as Produto;
     return Scaffold(
-        appBar: AppBar(
-          title: Text(produto.nome),
-        ),
-        body: Card(
-          margin: EdgeInsets.all(20),
-          child: Column(
-            children: <Widget>[
-              Row(children: <Widget>[
+      appBar: AppBar(
+        title: Text(produto.nome),
+      ),
+      body: Card(
+        margin: EdgeInsets.all(20),
+        child: SingleChildScrollView(
+          child: IntrinsicHeight(
+            child: Column(
+              children: <Widget>[
                 SizedBox(
-                  height: 200,
-                  width: 200,
                   child: Image(
-                    image: Image.file(File(produto.imagemArquivo)).image,
+                    image: Image.network(produto.imagemArquivo).image,
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -62,9 +61,11 @@ class ProdutoDetalhes extends StatelessWidget {
                     )
                   ]),
                 ),
-              ])
-            ],
+              ],
+            ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

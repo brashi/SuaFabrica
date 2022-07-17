@@ -31,7 +31,7 @@ class ProdutoItem extends StatelessWidget {
                       topRight: Radius.circular(15),
                     ),
                     child: Image(
-                        image: Image.file(File(produto.imagemArquivo)).image,
+                        image: Image.network(produto.imagemArquivo).image,
                         width: double.infinity,
                         fit: BoxFit.fill)),
                 Positioned(

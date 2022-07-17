@@ -56,11 +56,11 @@ class PedidoManage extends StatelessWidget {
             },
             child: pedido.pedidoConcluido
                 ? Row(children: [
-                    const Text('Reverter confirmação'),
+                    const Flexible(child: Text('Reverter confirmação')),
                     Icon(Icons.cancel)
                   ])
                 : Row(children: [
-                    const Text('Confirmar Pedido'),
+                    const Flexible(child: Text('Confirmar Pedido')),
                     Icon(Icons.done)
                   ]),
           ),
