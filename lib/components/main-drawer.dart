@@ -1,3 +1,4 @@
+import 'package:suafabrica/core/services/auth/auth_service.dart';
 import 'package:suafabrica/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
@@ -7,10 +8,15 @@ class MainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget _createItem(IconData icon, String label, Function() onTap) {
+      var cor = Colors.grey;
+      if (label == "Deslogar-se") {
+        cor = Colors.red;
+      }
       return ListTile(
         leading: Icon(
           icon,
           size: 26,
+          color: cor,
         ),
         title: Text(
           label,
@@ -34,6 +40,10 @@ class MainDrawer extends StatelessWidget {
               'Painel do Fabricante',
               () =>
                   Navigator.of(context).pushReplacementNamed(AppRoutes.MANAGE)),
+          _createItem(Icons.exit_to_app_outlined, 'Deslogar-se', () {
+            AuthService().logout();
+            Navigator.of(context).pushReplacementNamed(AppRoutes.HOME);
+          })
         ],
       ),
     );

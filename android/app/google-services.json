@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "499109200932",
+    "firebase_url": "https://suafabrica-72ebb-default-rtdb.firebaseio.com",
+    "project_id": "suafabrica-72ebb",
+    "storage_bucket": "suafabrica-72ebb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499109200932:android:3fab108a7190fc856544b1",
+        "android_client_info": {
+          "package_name": "com.example.suafabrica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499109200932-cqkr0le3i6gullu4mnhjhglen7480hsf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdHCqjGUa4sLrgdHN78d851Nje94UG9gg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499109200932-cqkr0le3i6gullu4mnhjhglen7480hsf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

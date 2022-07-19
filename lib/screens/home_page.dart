@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:suafabrica/components/main-drawer.dart';
-import 'package:suafabrica/data/objetos.dart';
 import 'package:suafabrica/screens/pedidos-options.dart';
 import 'package:suafabrica/screens/product-options.dart';
 

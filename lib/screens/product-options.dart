@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:suafabrica/components/produto-item.dart';
 import 'package:suafabrica/controller/produto-controller.dart';
 import 'package:suafabrica/model/produto.dart';
-import 'package:suafabrica/data/objetos.dart';
 
 class ProdutoOpcoesScreen extends StatelessWidget {
   const ProdutoOpcoesScreen({Key? key}) : super(key: key);

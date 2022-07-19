@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:suafabrica/controller/pedido-controller.dart';
 import 'package:suafabrica/controller/produto-controller.dart';
-import 'package:suafabrica/data/objetos.dart';
 import 'package:suafabrica/model/pedido.dart';
 import 'package:suafabrica/model/produto.dart';
 
